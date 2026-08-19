@@ -1,9 +1,19 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 110]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 54]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.82], [1, 0.18]);
 
   const rise = {
     initial: { opacity: 0, y: reduceMotion ? 0 : 24 },
@@ -11,8 +21,13 @@ export function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden border-b hairline">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(200,169,126,0.12),transparent_24%)]" />
+    <section ref={sectionRef} className="relative flex min-h-screen items-end overflow-hidden border-b hairline">
+      <motion.div
+        aria-hidden="true"
+        style={{ y: glowY }}
+        className="absolute inset-[-10%] bg-[radial-gradient(circle_at_72%_28%,rgba(200,169,126,0.16),transparent_24%)]"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,transparent_58%,rgba(255,255,255,0.025)_58.1%,transparent_58.35%)]" />
       <div className="absolute right-[8%] top-[15%] hidden h-[58vh] w-px bg-white/10 md:block" />
       <div className="absolute right-[8%] top-[15%] hidden h-px w-[34vw] bg-white/10 md:block" />
 
@@ -25,14 +40,16 @@ export function Hero() {
           Matheus Franco · Psicanálise Clínica
         </motion.p>
 
-        <motion.h1
-          {...rise}
-          transition={{ duration: 0.95, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="display max-w-5xl text-[clamp(3.3rem,9vw,8.5rem)] leading-[0.88] tracking-[-0.055em]"
-        >
-          O que não é dito
-          <span className="block italic text-[var(--accent)]">retorna.</span>
-        </motion.h1>
+        <motion.div style={{ y: titleY, opacity: titleOpacity }}>
+          <motion.h1
+            {...rise}
+            transition={{ duration: 0.95, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="display max-w-5xl text-[clamp(3.3rem,9vw,8.5rem)] leading-[0.88] tracking-[-0.055em]"
+          >
+            O que não é dito
+            <span className="block italic text-[var(--accent)]">retorna.</span>
+          </motion.h1>
+        </motion.div>
 
         <div className="mt-12 grid gap-10 border-t hairline pt-8 md:grid-cols-[1fr_1fr] md:items-end">
           <motion.p
@@ -59,6 +76,16 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
+
+        <motion.div
+          {...rise}
+          transition={{ duration: 0.8, delay: 0.42 }}
+          className="mt-10 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-white/35"
+          aria-hidden="true"
+        >
+          <span className="h-px w-10 bg-white/25" />
+          role para escutar
+        </motion.div>
       </div>
     </section>
   );
