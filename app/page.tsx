@@ -1,24 +1,45 @@
 import { Hero } from "@/components/hero";
 
-const journey = [
+const steps = [
+  ["01", "Escuta", "Um espaço sem pressa para aquilo que ainda não encontrou palavras."],
+  ["02", "Elaboração", "Perceber padrões, conflitos e sentidos que se repetem na própria história."],
+  ["03", "Movimento", "Criar novas possibilidades onde antes parecia existir apenas repetição."],
+];
+
+const trajectory = [
   {
-    year: "01",
-    label: "Escuta",
-    title: "Aquilo que insiste merece ser escutado.",
-    body: "Nem sempre o que se repete é evidente. Às vezes volta como relação, escolha, sintoma, silêncio ou sensação de estar sempre chegando ao mesmo lugar.",
+    label: "Psicanálise Clínica",
+    title: "Escutar além do que é dito.",
+    body:
+      "Minha prática parte da escuta clínica e da compreensão de que sintomas, repetições e conflitos podem carregar sentidos que ainda não foram elaborados.",
   },
   {
-    year: "02",
-    label: "Elaboração",
-    title: "Dar forma ao que antes só pesava.",
-    body: "A análise não entrega respostas prontas. Ela cria condições para reconhecer sentidos, conflitos e marcas da própria história que continuam agindo no presente.",
+    label: "Vivência hospitalar",
+    title: "Contato com a fragilidade humana.",
+    body:
+      "A experiência em ambientes hospitalares ampliou meu olhar para o cuidado, para o limite e para aquilo que muitas vezes aparece quando a vida exige respostas rápidas demais.",
   },
   {
-    year: "03",
-    label: "Movimento",
-    title: "Quando compreender começa a mudar o caminho.",
-    body: "Elaborar não apaga o passado. Mas pode abrir espaço para escolhas menos automáticas, relações menos repetitivas e novas possibilidades de existência.",
+    label: "Formação em Enfermagem",
+    title: "Corpo, contexto e cuidado.",
+    body:
+      "A formação acadêmica em Enfermagem acrescenta uma leitura mais ampla do sujeito, sem reduzir o sofrimento psíquico a uma única dimensão.",
   },
+];
+
+const questions = [
+  [
+    "Preciso estar em crise para começar?",
+    "Não. A análise também pode começar quando existe a sensação de repetição, incômodo, dúvida, conflito ou desejo de compreender melhor a própria história.",
+  ],
+  [
+    "Como funciona o primeiro contato?",
+    "O primeiro passo é uma conversa breve para entender sua demanda, explicar como funciona o atendimento e verificar se faz sentido iniciarmos um processo juntos.",
+  ],
+  [
+    "O atendimento pode ser online?",
+    "Sim. A proposta do site prevê atendimento online, com organização, privacidade e um espaço de escuta estruturado para a sessão.",
+  ],
 ];
 
 export default function Home() {
@@ -48,106 +69,114 @@ export default function Home() {
 
       <section className="border-y hairline bg-white/[0.025]">
         <div className="shell grid gap-8 py-16 md:grid-cols-3 md:py-24">
-          {journey.map((item) => (
-            <article key={item.year} className="border-t hairline pt-6">
-              <span className="eyebrow">{item.year}</span>
-              <p className="mt-8 text-sm uppercase tracking-[0.2em] text-white/45">{item.label}</p>
-              <h2 className="display mt-4 text-3xl leading-tight">{item.title}</h2>
-              <p className="mt-5 max-w-sm leading-7 text-white/60">{item.body}</p>
+          {steps.map(([number, title, body]) => (
+            <article key={number} className="border-t hairline pt-6">
+              <span className="eyebrow">{number}</span>
+              <h2 className="display mt-8 text-3xl">{title}</h2>
+              <p className="mt-5 max-w-sm leading-7 text-white/60">{body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="shell py-28 md:py-44">
-        <div className="grid items-end gap-16 md:grid-cols-[1.15fr_0.85fr]">
+      <section className="shell py-24 md:py-40">
+        <div className="grid items-start gap-16 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <p className="eyebrow">Entre teoria e experiência humana</p>
-            <h2 className="display mt-8 max-w-4xl text-5xl leading-[0.98] tracking-[-0.04em] md:text-7xl">
-              Escutar alguém exige mais do que técnica.
+            <p className="eyebrow">Trajetória</p>
+            <h2 className="display mt-8 max-w-4xl text-4xl leading-[0.98] tracking-[-0.035em] md:text-6xl">
+              Entre a escuta clínica, o hospital e a formação em saúde, existe uma mesma pergunta:
+              o que essa experiência está tentando dizer?
             </h2>
+            <p className="mt-8 max-w-2xl text-base leading-7 text-white/60 md:text-lg">
+              Meu percurso profissional não é apresentado como coleção de títulos, mas como parte do
+              modo como compreendo cuidado, vulnerabilidade, repetição e elaboração.
+            </p>
           </div>
-          <div className="max-w-xl space-y-5 text-base leading-7 text-white/62 md:text-lg">
-            <p>
-              Minha formação em Psicanálise Clínica se encontra com uma trajetória construída também
-              dentro da saúde, em contextos hospitalares e acadêmicos que me aproximaram de histórias
-              marcadas por limite, espera, medo, cuidado e transformação.
-            </p>
-            <p>
-              Não é sobre transformar a análise em medicina. É sobre reconhecer que sofrimento não
-              acontece no vazio: ele atravessa corpo, vínculos, trabalho, fé, escolhas e história.
-            </p>
+
+          <div className="relative min-h-[460px] overflow-hidden border hairline bg-[radial-gradient(circle_at_35%_25%,rgba(174,128,76,0.18),transparent_35%),linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-8 md:min-h-[560px] md:p-10">
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.36))]" />
+            <div className="relative flex h-full min-h-[390px] flex-col justify-between md:min-h-[480px]">
+              <span className="eyebrow">Retrato de autoridade</span>
+              <div>
+                <p className="display max-w-sm text-4xl leading-none md:text-5xl">Matheus Franco</p>
+                <p className="mt-5 max-w-sm leading-7 text-white/55">
+                  Psicanalista Clínico · Acadêmico de Enfermagem · experiência em ambientes hospitalares.
+                </p>
+                <p className="mt-8 text-xs uppercase tracking-[0.22em] text-white/35">
+                  imagem cinematográfica será inserida aqui
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 grid gap-6 md:grid-cols-3">
+          {trajectory.map((item) => (
+            <article key={item.label} className="border-t hairline py-7 md:py-9">
+              <p className="eyebrow">{item.label}</p>
+              <h3 className="display mt-6 text-3xl leading-tight">{item.title}</h3>
+              <p className="mt-5 leading-7 text-white/55">{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y hairline bg-white/[0.025]">
+        <div className="shell py-24 md:py-36">
+          <div className="grid gap-14 md:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p className="eyebrow">Para quem chega até aqui</p>
+              <h2 className="display mt-8 text-4xl leading-tight md:text-6xl">
+                Talvez você não precise de mais uma resposta pronta.
+              </h2>
+            </div>
+            <div className="max-w-2xl space-y-7 text-lg leading-8 text-white/62">
+              <p>
+                Talvez precise de um lugar onde aquilo que se repete possa finalmente ser ouvido com
+                tempo suficiente para ganhar outro sentido.
+              </p>
+              <p>
+                O atendimento não parte da promessa de uma solução instantânea. Parte da construção de
+                um espaço de escuta, responsabilidade e elaboração.
+              </p>
+              <a
+                href="https://wa.me/5562991507896"
+                className="mt-4 inline-flex items-center gap-3 border border-white/20 px-6 py-4 text-sm uppercase tracking-[0.18em] text-white transition hover:border-white/45 hover:bg-white/[0.04]"
+              >
+                Conversar sobre atendimento
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y hairline bg-white/[0.02]">
-        <div className="shell py-20 md:py-28">
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              ["Psicanálise Clínica", "Formação voltada à escuta, elaboração e compreensão do sujeito para além do sintoma aparente."],
-              ["Vivência hospitalar", "Experiência em ambientes de alta complexidade, onde a dimensão humana aparece sem filtros."],
-              ["Formação em saúde", "Trajetória acadêmica que amplia o olhar sobre cuidado, vulnerabilidade e contexto de vida."],
-            ].map(([title, body]) => (
-              <article key={title} className="min-h-64 border hairline p-7 md:p-8">
-                <p className="eyebrow">Trajetória</p>
-                <h3 className="display mt-10 text-3xl">{title}</h3>
-                <p className="mt-5 max-w-sm leading-7 text-white/58">{body}</p>
-              </article>
+      <section className="shell py-24 md:py-36">
+        <div className="grid gap-14 md:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="eyebrow">Antes de começar</p>
+            <h2 className="display mt-8 text-4xl md:text-5xl">Algumas perguntas costumam aparecer.</h2>
+          </div>
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {questions.map(([question, answer]) => (
+              <details key={question} className="group py-7">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-8 text-lg text-white/88">
+                  <span>{question}</span>
+                  <span className="text-white/35 transition group-open:rotate-45">+</span>
+                </summary>
+                <p className="max-w-2xl pt-5 leading-7 text-white/55">{answer}</p>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="shell py-28 md:py-44">
-        <div className="grid gap-16 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-          <div className="aspect-[4/5] border hairline bg-[radial-gradient(circle_at_30%_20%,rgba(173,123,79,0.18),transparent_35%),linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))] p-8">
-            <div className="flex h-full flex-col justify-between">
-              <span className="eyebrow">Imagem de autoridade</span>
-              <div>
-                <p className="display text-4xl leading-tight text-white/80">Matheus Franco</p>
-                <p className="mt-3 text-sm uppercase tracking-[0.16em] text-white/40">Psicanálise • saúde • escuta</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p className="eyebrow">Não é sobre ter todas as respostas</p>
-            <h2 className="display mt-8 text-5xl leading-[1] tracking-[-0.04em] md:text-7xl">
-              É sobre criar um lugar onde a pergunta certa possa finalmente aparecer.
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/62">
-              A análise começa quando a pessoa encontra um espaço em que não precisa performar força,
-              justificar cada sentimento ou organizar tudo antes de falar.
-            </p>
-          </div>
+      <footer className="border-t hairline">
+        <div className="shell flex flex-col gap-8 py-10 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
+          <p>Matheus Franco · Psicanálise Clínica</p>
+          <p>O que não é dito… retorna.</p>
         </div>
-      </section>
-
-      <section id="atendimento" className="border-t hairline bg-[#12110f]">
-        <div className="shell py-24 md:py-36">
-          <div className="grid gap-12 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <p className="eyebrow">Atendimento</p>
-              <h2 className="display mt-8 max-w-4xl text-5xl leading-[0.98] tracking-[-0.04em] md:text-7xl">
-                Talvez você não precise continuar entendendo tudo sozinho.
-              </h2>
-              <p className="mt-8 max-w-2xl text-base leading-7 text-white/60 md:text-lg">
-                Atendimento psicanalítico com escuta individualizada, respeito ao tempo de cada pessoa
-                e espaço para aquilo que ainda não encontrou forma de ser dito.
-              </p>
-            </div>
-            <a
-              href="https://wa.me/5562991507896"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-14 items-center justify-center border hairline px-7 text-sm uppercase tracking-[0.18em] transition hover:bg-white hover:text-black"
-            >
-              Iniciar conversa
-            </a>
-          </div>
-        </div>
-      </section>
+      </footer>
     </main>
   );
 }
