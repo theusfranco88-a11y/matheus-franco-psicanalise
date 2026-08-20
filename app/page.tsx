@@ -279,8 +279,11 @@ export default function Home() {
 
           <Reveal delay={0.08}>
             <div className="overflow-hidden border border-white/10 bg-white/[0.02]">
-              <img
-                src="src="/imagens/ChatGPT%20Image%2020%20de%20ago.%20de%202026,%2009_53_39.png""
+      <img
+  src="/imagens/ChatGPT%20Image%2020%20de%20ago.%20de%202026,%2009_53_39.png"
+  alt="Formação em Psicanálise Clínica de Matheus Franco"
+  className="h-auto w-full object-cover"
+/>
                 alt="Formação em Psicanálise Clínica de Matheus Franco"
                 className="h-auto w-full object-cover"
               />
