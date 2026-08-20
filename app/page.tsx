@@ -259,7 +259,47 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+ <section id="credenciais" className="border-t hairline">
+        <div className="shell py-24 md:py-36">
+          <Reveal>
+            <div className="mb-12 md:mb-16">
+              <p className="sobrancelha">Formação & Credenciais</p>
 
+              <h2 className="mt-4 max-w-3xl text-4xl leading-tight text-white md:text-6xl">
+                Formação que sustenta uma escuta responsável.
+              </h2>
+
+              <p className="mt-6 max-w-2xl text-base leading-7 text-white/55 md:text-lg">
+                Formação em Psicanálise Clínica pela FACOP — Faculdade do
+                Centro Oeste Paulista, concluída em 2025, com carga horária
+                total de 116 horas.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <div className="overflow-hidden border border-white/10 bg-white/[0.02]">
+              <img
+                src="src="/imagens/ChatGPT%20Image%2020%20de%20ago.%20de%202026,%2009_53_39.png""
+                alt="Formação em Psicanálise Clínica de Matheus Franco"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
+              <p>Psicanálise Clínica · FACOP</p>
+              <p>Formação concluída em 2025 · 116 horas</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+"
+
+
+
+      
       <footer className="border-t hairline">
         <div className="shell flex flex-col gap-8 py-10 text-sm text-white/42 md:flex-row md:items-center md:justify-between">
           <p>Matheus Franco · Psicanálise Clínica</p>
